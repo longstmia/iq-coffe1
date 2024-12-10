@@ -13,9 +13,10 @@
     "airbnb/hooks",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-//    "plugin:fp/recommended",
     "plugin:jsx-a11y/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/react"
   ],
 
   //
@@ -24,7 +25,7 @@
   "plugins": [
     "react",
     "react-hooks",
-//    "fp",
+    //    "fp",
     "jsx-a11y",
     "@typescript-eslint/eslint-plugin",
     "prettier"
@@ -46,25 +47,12 @@
   // SETTINGS
   //
   "settings": {
-    "import/extensions": [
-      ".js",
-      ".jsx",
-      ".ts",
-      ".tsx"
-    ],
+    "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
 
     "import/resolver": {
       "node": {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx"
-        ],
-        "moduleDirectory": [
-          "node_modules",
-          "src/"
-        ]
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "src/"]
       },
       "typescript": {
         "project": "./tsconfig.json"
@@ -72,10 +60,7 @@
     },
 
     "import/parsers": {
-      "@typescript-eslint/parser": [
-        ".ts",
-        ".tsx"
-      ]
+      "@typescript-eslint/parser": [".ts", ".tsx"]
     },
 
     "react": {
@@ -87,6 +72,7 @@
   // RULES
   //
   "rules": {
+    "react/self-closing-comp": "off",
     // https://eslint.org/docs/latest/rules/prefer-const
     "prefer-const": [
       2,
@@ -99,10 +85,7 @@
     "eol-last": 1,
 
     // https://eslint.org/docs/latest/rules/linebreak-style
-    "linebreak-style": [
-      2,
-      "unix"
-    ],
+    "linebreak-style": [2, "unix"],
 
     // https://eslint.org/docs/latest/rules/no-debugger
     "no-debugger": 1,
@@ -111,10 +94,7 @@
     "no-console": [
       1,
       {
-        "allow": [
-          "warn",
-          "error"
-        ]
+        "allow": ["warn", "error"]
       }
     ],
 
@@ -125,22 +105,13 @@
     "no-underscore-dangle": 0,
 
     // https://eslint.org/docs/latest/rules/quotes
-    "quotes": [
-      1,
-      "single"
-    ],
+    "quotes": [1, "single"],
 
     // https://eslint.org/docs/latest/rules/jsx-quotes
-    "jsx-quotes": [
-      1,
-      "prefer-double"
-    ],
+    "jsx-quotes": [1, "prefer-double"],
 
     // https://eslint.org/docs/latest/rules/comma-dangle
-    "comma-dangle": [
-      1,
-      "only-multiline"
-    ],
+    "comma-dangle": [1, "only-multiline"],
 
     // https://eslint.org/docs/latest/rules/max-len
     "max-len": [
@@ -180,14 +151,12 @@
     ],
 
     // https://eslint.org/docs/latest/rules/object-curly-spacing
-    "object-curly-spacing": [
-      1,
-      "always"
-    ],
+    "object-curly-spacing": [1, "always"],
 
     // https://eslint.org/docs/latest/rules/object-property-newline
     "object-property-newline": [
-      1, {
+      1,
+      {
         "allowAllPropertiesOnSameLine": true
       }
     ],
@@ -197,16 +166,24 @@
       1,
       {
         "ObjectExpression": {
-          "minProperties": 4, "multiline": true, "consistent": true
+          "minProperties": 4,
+          "multiline": true,
+          "consistent": true
         },
         "ObjectPattern": {
-          "minProperties": 4, "multiline": true, "consistent": true
+          "minProperties": 4,
+          "multiline": true,
+          "consistent": true
         },
         "ImportDeclaration": {
-          "minProperties": 4, "multiline": true, "consistent": true
+          "minProperties": 4,
+          "multiline": true,
+          "consistent": true
         },
         "ExportDeclaration": {
-          "minProperties": 4, "multiline": true, "consistent": true
+          "minProperties": 4,
+          "multiline": true,
+          "consistent": true
         }
       }
     ],
@@ -282,10 +259,7 @@
           "builtin",
           "external",
           "internal",
-          [
-            "sibling",
-            "parent"
-          ],
+          ["sibling", "parent"],
           "index",
           "object",
           "type"
@@ -368,19 +342,13 @@
     ],
 
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-indent-props.md
-    "react/jsx-indent-props": [
-      1,
-      2
-    ],
+    "react/jsx-indent-props": [1, 2],
 
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [
-          ".jsx",
-          ".tsx"
-        ]
+        "extensions": [".jsx", ".tsx"]
       }
     ],
 
@@ -392,9 +360,7 @@
         "shorthandFirst": true,
         "multiline": "last",
         "ignoreCase": true,
-        "reservedFirst": [
-          "key", "ref"
-        ],
+        "reservedFirst": ["key", "ref"],
 
         "noSortAlphabetically": false
       }
@@ -423,7 +389,6 @@
       }
     ],
 
-
     // https://typescript-eslint.io/rules/adjacent-overload-signatures/
     "@typescript-eslint/adjacent-overload-signatures": 1,
 
@@ -440,17 +405,12 @@
     "@typescript-eslint/prefer-optional-chain": 1,
 
     // https://typescript-eslint.io/rules/consistent-type-definitions/
-    "@typescript-eslint/consistent-type-definitions": [
-      1,
-      "interface"
-    ],
+    "@typescript-eslint/consistent-type-definitions": [1, "interface"],
 
     // https://eslint.org/docs/latest/rules/no-shadow
     "no-shadow": 0,
     // https://typescript-eslint.io/rules/no-shadow/
-    "@typescript-eslint/no-shadow": [
-      1
-    ],
+    "@typescript-eslint/no-shadow": [1],
 
     // https://eslint.org/docs/latest/rules/no-unused-vars
     "no-unused-vars": 0,
@@ -465,9 +425,7 @@
     // https://eslint.org/docs/latest/rules/semi
     "semi": 0,
     // https://typescript-eslint.io/rules/semi/
-    "@typescript-eslint/semi": [
-      1
-    ],
+    "@typescript-eslint/semi": [1],
 
     // https://eslint.org/docs/latest/rules/indent
     "indent": 0,
@@ -524,13 +482,7 @@
     "@typescript-eslint/member-ordering": [
       1,
       {
-        "default":
-        [
-          "signature",
-          "field",
-          "constructor",
-          "method"
-        ]
+        "default": ["signature", "field", "constructor", "method"]
       }
     ],
 
@@ -568,17 +520,15 @@
     ],
 
     // https://typescript-eslint.io/rules/method-signature-style/
-    "@typescript-eslint/method-signature-style": [
-      2,
-      "property"
-    ],
+    "@typescript-eslint/method-signature-style": [2, "property"],
 
+    // https://typescript-eslint.io/rules/consistent-indexed-object-style/
     // https://typescript-eslint.io/rules/consistent-indexed-object-style/
     "@typescript-eslint/consistent-indexed-object-style": [
       0,
       "index-signature"
-    ]
+    ],
 
-//    "prettier/prettier": 1
+    "prettier/prettier": 1
   }
 }
